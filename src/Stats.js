@@ -20,7 +20,6 @@ class Stats extends Component {
 	render() {
 		return (
 			<div id="stats-border">
-
 				<div id="stats-container">
 					<section id="top-section-container">
 						<figure id="sprite-container">
@@ -77,9 +76,9 @@ class Stats extends Component {
 
 						<div id="type-panel">
 							{this.props.types.map((type, index) =>
-								<div>
-									<p>TYPE<span className="tiny-text">{index + 1}</span>/</p>
-									<p className="indented">{type.toUpperCase()}</p>
+								<div key={'typeContainer-' + index.toString()}>
+									<p key={'type-' + index.toString()}>TYPE<span className="tiny-text">{index + 1}</span>/</p>
+									<p key={'typeName-' + index.toString()} className="indented">{type.toUpperCase()}</p>
 								</div>
 							)}
 						<p className="tiny-text">ID No./</p>

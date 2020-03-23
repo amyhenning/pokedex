@@ -10,6 +10,7 @@ class PokemonInfo extends Component {
 			showInfo: '',
 			pokemonData: {},
 			dataFormatted: '',
+			error: '',
 		};
 		this.togglePokemonInfo = this.togglePokemonInfo.bind(this);
 		this.getPokemonInfo = this.getPokemonInfo.bind(this);
@@ -20,13 +21,25 @@ class PokemonInfo extends Component {
 
 	getPokemonInfo() {
 		const pokemonBaseUrl = 'https://pokeapi.co/api/v2/pokemon/';
-		const pokemonResponse = fetch(pokemonBaseUrl + this.props.pokemonName.toLowerCase()).then(res => res.json());
+		const pokemonResponse = fetch(pokemonBaseUrl + this.props.pokemonName.toLowerCase())
+			.then(response => {
+				if (!response.ok) {
+					console.error(`Error: ${response.status}. Likely caused by invalid input.`);
+				};
+				return response.json();
+			});
 		return pokemonResponse;
 	}
 
 	getSpeciesInfo() {
 		const speciesBaseUrl = 'https://pokeapi.co/api/v2/pokemon-species/';
-		const speciesResponse = fetch(speciesBaseUrl + this.props.pokemonName.toLowerCase()).then(res => res.json());
+		const speciesResponse = fetch(speciesBaseUrl + this.props.pokemonName.toLowerCase())
+			.then(response => {
+				if (!response.ok) {
+					console.error(`Error: ${response.status}. Likely caused by invalid input.`);
+				};
+				return response.json();
+			});
 		return speciesResponse;
 	}
 
@@ -59,14 +72,21 @@ class PokemonInfo extends Component {
 	}
 
 	componentDidMount() {
-		Promise.all([this.getPokemonInfo(), this.getSpeciesInfo()]).then(([pokemonData, speciesData]) => {
+		Promise.all([this.getPokemonInfo(), this.getSpeciesInfo()])
+		.then(([pokemonData, speciesData]) => {
 			this.setState({
 				pokemonData: this.formatAllData(pokemonData, speciesData),
 				showInfo: true,
-			 dataFormatted: true
+				dataFormatted: true,
+				error: false,
 			});
-    });
-	}
+    })
+    .catch(error => {
+			this.setState({
+				error: true,
+			});
+    })
+	};
 
 	togglePokemonInfo() {
 		this.setState(st => {
@@ -77,42 +97,46 @@ class PokemonInfo extends Component {
 	};
 
 	renderContent() {
-		if (!this.state.showInfo && !this.state.dataFormatted) {
-			return <h3 id="loading-message">Loading . . .</h3>
-		} else if (this.state.dataFormatted) {
-			if (this.state.showInfo) {
-				return (
-					<div>
-						<BasicInfo 
-							name={this.state.pokemonData.name}
-							height={this.state.pokemonData.height}
-							weight={this.state.pokemonData.weight}
-							id={this.state.pokemonData.id}
-							flavorText={this.state.pokemonData.flavorText}
-							spriteUrl={this.state.pokemonData.spriteUrl}
-						/>
-						<button id="toggle-arrows" onClick={this.togglePokemonInfo}>&#62;&#62;</button>
-					</div>
-				)
-			} else if (!this.state.showInfo) {
-				return (
-					<div>
-						<Stats
-							name={this.state.pokemonData.name}
-							spriteUrl={this.state.pokemonData.spriteUrl}
-							attack={this.state.pokemonData.attack}
-							defense={this.state.pokemonData.defense}
-							hp={this.state.pokemonData.hp}
-							specialDefense={this.state.pokemonData['special-defense']}
-							specialAttack={this.state.pokemonData['special-attack']}
-							speed={this.state.pokemonData.speed}
-							types={this.state.pokemonData.types}
-							id={this.state.pokemonData.id}
-						/>
-						<button id="toggle-arrows" onClick={this.togglePokemonInfo}>&#60;&#60;</button>
-					</div>
-				)
+		if (!this.state.error) {
+			if (!this.state.showInfo && !this.state.dataFormatted) {
+				return <h3 id="loading-message">Loading . . .</h3>
+			} else if (this.state.dataFormatted) {
+				if (this.state.showInfo) {
+					return (
+						<div id="basic-info-component">
+							<BasicInfo
+								name={this.state.pokemonData.name}
+								height={this.state.pokemonData.height}
+								weight={this.state.pokemonData.weight}
+								id={this.state.pokemonData.id}
+								flavorText={this.state.pokemonData.flavorText}
+								spriteUrl={this.state.pokemonData.spriteUrl}
+							/>
+							<button id="toggle-arrows" onClick={this.togglePokemonInfo}>&#62;&#62;</button>
+						</div>
+					)
+				} else if (!this.state.showInfo) {
+					return (
+						<div id="stats-component">
+							<Stats
+								name={this.state.pokemonData.name}
+								spriteUrl={this.state.pokemonData.spriteUrl}
+								attack={this.state.pokemonData.attack}
+								defense={this.state.pokemonData.defense}
+								hp={this.state.pokemonData.hp}
+								specialDefense={this.state.pokemonData['special-defense']}
+								specialAttack={this.state.pokemonData['special-attack']}
+								speed={this.state.pokemonData.speed}
+								types={this.state.pokemonData.types}
+								id={this.state.pokemonData.id}
+							/>
+							<button id="toggle-arrows" onClick={this.togglePokemonInfo}>&#60;&#60;</button>
+						</div>
+					)
+				}
 			}
+		} else {
+			return <h3 id="error-message">Error! No such Pokémon found.</h3>
 		}
 	}
 
