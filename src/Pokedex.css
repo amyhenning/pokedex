@@ -11,10 +11,8 @@
 }
 
 #pokedex-main {
-	width: 90%;
-	max-width: 350px;
-	margin: 2em 1em;
-	padding: 2em;
+	width: 350px;
+	margin-top: 2em;
 }
 
 h1 {

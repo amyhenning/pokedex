@@ -17,6 +17,21 @@ class BasicInfo extends Component {
 							<p>WT <b>{this.props.weight}</b>kg</p>
 						</div>
 					</section>
+					<div id="boxes">
+						<div id="box-group-left">
+							<div className="box"></div>
+							<div className="box"></div>
+							<div className="box"></div>
+							<div className="box"></div>
+						</div>
+
+						<div id="box-group-right">
+							<div className="box"></div>
+							<div className="box"></div>
+							<div className="box"></div>
+							<div className="box"></div>
+						</div>
+					</div>
 					<hr />
 					<section id="pokemon-description">
 						<p>{this.props.flavorText}</p>

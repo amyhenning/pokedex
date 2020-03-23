@@ -20,6 +20,7 @@ class Stats extends Component {
 	render() {
 		return (
 			<div id="stats-border">
+
 				<div id="stats-container">
 					<section id="top-section-container">
 						<figure id="sprite-container">
@@ -40,7 +41,24 @@ class Stats extends Component {
 							<p>STATUS/OK</p>
 						</div>
 					</section>
-
+					<div id="pokeballs">
+						<div className="pokeball top-left">
+							<div className="pokeball-upper"></div>
+							<div className="pokeball-lower"></div>
+						</div>
+						<div className="pokeball top-right">
+							<div className="pokeball-upper"></div>
+							<div className="pokeball-lower"></div>
+						</div>
+						<div className="pokeball bottom-left">
+							<div className="pokeball-upper"></div>
+							<div className="pokeball-lower"></div>
+						</div>
+						<div className="pokeball bottom-right">
+							<div className="pokeball-upper"></div>
+							<div className="pokeball-lower"></div>
+						</div>
+					</div>
 					<section id="detailed-stats">
 						<div id="basic-stats-border">
 							<div id="basic-stats-box">
@@ -60,7 +78,7 @@ class Stats extends Component {
 						<div id="type-panel">
 							{this.props.types.map((type, index) =>
 								<div>
-									<p>TYPE{index + 1}/</p>
+									<p>TYPE<span className="tiny-text">{index + 1}</span>/</p>
 									<p className="indented">{type.toUpperCase()}</p>
 								</div>
 							)}
