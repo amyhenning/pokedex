@@ -50,7 +50,7 @@
 
 #pokemon-description {
 	text-align: left;
-	padding: 1.75em;
+	padding: 1.5em;
 }
 
 #pokemon-description p {
@@ -60,7 +60,7 @@
 
 #boxes {
 	position: relative;
-	top: 34px;
+	top: 30px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -95,7 +95,7 @@
 }
 
 hr {
-	margin-top: 2em;
+	margin-top: 1.75em;
 	margin-bottom: 0;
 	border: 1px solid #000;	
 }

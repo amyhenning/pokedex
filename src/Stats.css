@@ -160,9 +160,9 @@
 }
 
 #type-panel {
-	width: 43%;
+	width: 45%;
 	text-align: left;
-	margin-left: 1em;
+	margin-left: .5em;
 	padding-left: 1em;
 	border-right: 4px solid #000;
 	border-bottom: 4px solid #000;
