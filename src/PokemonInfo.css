@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+#loading-message {
+	margin: 2em 0;
+}
+
+#toggle-arrows {
+	border: none;
+	font-size: 1.25em;
+	font-weight: 900;
+	background-color: #fafafa;
+  font-family: 'Press Start 2P', 'sans serif';
+  cursor: pointer;
+}
