@@ -3,7 +3,7 @@ import './Stats.css';
 
 class Stats extends Component {
 	generateIdNo(min, max) {
-	  return Math.floor(Math.random() * (max - min) + min);
+		return Math.floor(Math.random() * (max - min) + min);
 	}
 
 	formatTypes(types) {
@@ -40,40 +40,32 @@ class Stats extends Component {
 							<p>STATUS/OK</p>
 						</div>
 					</section>
-					<div id="pokeballs">
-						<div className="pokeball top-left">
-							<div className="pokeball-upper"></div>
-							<div className="pokeball-lower"></div>
-						</div>
-						<div className="pokeball top-right">
-							<div className="pokeball-upper"></div>
-							<div className="pokeball-lower"></div>
-						</div>
-						<div className="pokeball bottom-left">
-							<div className="pokeball-upper"></div>
-							<div className="pokeball-lower"></div>
-						</div>
-						<div className="pokeball bottom-right">
-							<div className="pokeball-upper"></div>
-							<div className="pokeball-lower"></div>
-						</div>
-					</div>
-					<section id="detailed-stats">
-						<div id="basic-stats-border">
-							<div id="basic-stats-box">
-								<p className="left-align">ATTACK</p>
-								<p className="right-align bold-stats">{this.props.attack}</p>
-								<p className="left-align">DEFENSE</p>
-								<p className="right-align bold-stats">{this.props.defense}</p>
-								<p className="left-align">SPEED</p>
-								<p className="right-align bold-stats">{this.props.speed}</p>
-								<p className="left-align">SP. ATT.</p>
-								<p className="right-align bold-stats">{this.props.specialAttack}</p>
-								<p className="left-align">SP. DEF.</p>
-								<p className="right-align bold-stats">{this.props.specialDefense}</p>
-							</div>
-						</div>
 
+					<section id="detailed-stats">
+						<div id="basic-stats-box">
+							<p className="left-align">ATTACK</p>
+							<p className="right-align bold-stats">{this.props.attack}</p>
+							<p className="left-align">DEFENSE</p>
+							<p className="right-align bold-stats">{this.props.defense}</p>
+							<p className="left-align">SPEED</p>
+							<p className="right-align bold-stats">{this.props.speed}</p>
+							<p className="left-align">SP. ATT.</p>
+							<p className="right-align bold-stats">{this.props.specialAttack}</p>
+							<p className="left-align">SP. DEF.</p>
+							<p className="right-align bold-stats">{this.props.specialDefense}</p>
+							<span className="pokeball top-left">
+								<span className="pokeball-upper"></span>
+							</span>
+							<span className="pokeball top-right">
+								<span className="pokeball-upper"></span>
+							</span>
+							<span className="pokeball bottom-left">
+								<span className="pokeball-upper"></span>
+							</span>
+							<span className="pokeball bottom-right">
+								<span className="pokeball-upper"></span>
+							</span>
+						</div>
 						<div id="type-panel">
 							{this.props.types.map((type, index) =>
 								<div key={'typeContainer-' + index.toString()}>

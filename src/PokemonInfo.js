@@ -104,6 +104,7 @@ class PokemonInfo extends Component {
 				if (this.state.showInfo) {
 					return (
 						<div id="basic-info-component">
+						<button id="toggle-arrows" onClick={this.togglePokemonInfo}>&#62;&#62;</button>
 							<BasicInfo
 								name={this.state.pokemonData.name}
 								height={this.state.pokemonData.height}
@@ -112,12 +113,12 @@ class PokemonInfo extends Component {
 								flavorText={this.state.pokemonData.flavorText}
 								spriteUrl={this.state.pokemonData.spriteUrl}
 							/>
-							<button id="toggle-arrows" onClick={this.togglePokemonInfo}>&#62;&#62;</button>
 						</div>
 					)
 				} else if (!this.state.showInfo) {
 					return (
 						<div id="stats-component">
+							<button id="toggle-arrows" onClick={this.togglePokemonInfo}>&#60;&#60;</button>
 							<Stats
 								name={this.state.pokemonData.name}
 								spriteUrl={this.state.pokemonData.spriteUrl}
@@ -130,7 +131,6 @@ class PokemonInfo extends Component {
 								types={this.state.pokemonData.types}
 								id={this.state.pokemonData.id}
 							/>
-							<button id="toggle-arrows" onClick={this.togglePokemonInfo}>&#60;&#60;</button>
 						</div>
 					)
 				}

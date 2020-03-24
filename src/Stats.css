@@ -1,5 +1,5 @@
 #stats-border {
-	margin: 2em 0em;
+	margin: 1em 0em;
 }
 
 #top-section-container {
@@ -79,68 +79,58 @@
 
 #detailed-stats {
 	margin-top: 1em;
+	margin-bottom: 1em;
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
 	justify-content: flex-start;
-}
-
-#pokeballs {
-	height: 0;
-	width: 0;
+	height: 235px;
 }
 
 .pokeball {
+  position: absolute;
 	width: 8px;
 	height: 8px;
 	border: 2px solid #000;
 	border-radius: 50%;
-	position: relative;
-}
-
-.top-left {
-	top: 11px;
-	left: -3px;
-}
-
-.top-right {
-	top: -1px;
-	left: 169px;
-}
-
-.bottom-left {
-	top: 213px;
-	left: -3px;
-}
-
-.bottom-right {
-	top: 201px;
-	left: 169px;
+  background-color: #fafafa;
 }
 
 .pokeball-upper {
-	 height:4px;
-	 width:8px;
-	 border-radius: 8px 8px 0 0;
-	 background: #000;
+	position: absolute;
+	left: 0px;
+	height:4px;
+	width:8px;
+	border-radius: 8px 8px 0 0;
+	background-color: #000;
 }
 
-.pokeball-lower {
-	 height:4px;
-	 width:8px;
-	 border-radius: 0 0 8px 8px ;
-	 background: #fafafa;
+.top-left {
+	top: -8px;
+	left: -8px;
 }
 
-#basic-stats-border {
-	border: 1.5px solid #000;
-	width: 55%;
+.top-right {
+	top: -8px;
+	right: -8px
+}
+
+.bottom-left {
+	bottom: -8px;
+	left: -8px
+}
+
+.bottom-right {
+	bottom: -8px;
+	right: -8px
 }
 
 #basic-stats-box {
-	border: 1.5px solid #000;
+	border: 5px double #000;
 	margin: 2px;
 	padding: 3px;
+	position: absolute;
+	width: 150px;
 }
 
 .left-align {
@@ -160,9 +150,10 @@
 }
 
 #type-panel {
-	width: 45%;
+	position: relative;
+	width: 150px;
 	text-align: left;
-	margin-left: .5em;
+	margin-left: 13em;
 	padding-left: 1em;
 	border-right: 4px solid #000;
 	border-bottom: 4px solid #000;
