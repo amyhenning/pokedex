@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
 
 #pokedex-container {
-	height: 100vh;
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
@@ -12,7 +11,7 @@
 
 #pokedex-main {
 	width: 350px;
-	margin-top: 2em;
+	margin: 2em 0;
 }
 
 h1 {
@@ -53,4 +52,8 @@ h3 {
 	padding: 0.5em;
   font-family: 'Press Start 2P', 'sans serif';
   background-color: #cfcfcf;
+}
+
+.footer-text {
+
 }

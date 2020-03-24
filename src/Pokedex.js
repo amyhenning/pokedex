@@ -54,6 +54,7 @@ class Pokedex extends Component {
 		      <button className="button" onClick={this.handleClick}>Start Over</button>
 		      {this.state.isSubmitted && this.state.value && <PokemonInfo pokemonName={this.state.value} />}
 				</main>
+
 			</div>
 		)
 	}

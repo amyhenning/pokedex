@@ -7,6 +7,10 @@ function App() {
   return (
     <div className="App">
       <Pokedex />
+
+			<footer>
+				<p className="footer-text">Hand-coded by Amy Henning, 2020</p>
+			</footer>
     </div>
   );
 }

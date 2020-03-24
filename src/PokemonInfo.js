@@ -104,7 +104,7 @@ class PokemonInfo extends Component {
 				if (this.state.showInfo) {
 					return (
 						<div id="basic-info-component">
-						<button id="toggle-arrows" onClick={this.togglePokemonInfo}>&#62;&#62;</button>
+							<button id="toggle-arrows" onClick={this.togglePokemonInfo}>&#62;&#62;</button>
 							<BasicInfo
 								name={this.state.pokemonData.name}
 								height={this.state.pokemonData.height}
@@ -142,7 +142,7 @@ class PokemonInfo extends Component {
 
 	render() {
 		return (
-			<div>
+			<div id="pokemon-info-container">
 				{this.renderContent()}
 			</div>
 		)
