@@ -52,6 +52,7 @@ h3 {
 	padding: 0.5em;
   font-family: 'Press Start 2P', 'sans serif';
   background-color: #cfcfcf;
+  cursor: pointer;
 }
 
 .footer-text {

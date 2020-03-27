@@ -23,10 +23,15 @@ class Pokedex extends Component {
 
   handleSubmit(event) {
   	event.preventDefault(); 
-  	this.setState({
-  		value: this.state.value,
-  		isSubmitted: !this.state.isSubmitted,
-  	});
+  	let stringTest = /A-Za-z/;
+  	if (stringTest.test(this.state.value)) {
+	  	this.setState({
+	  		value: this.state.value,
+	  		isSubmitted: !this.state.isSubmitted,
+	  	});
+  	} else {
+  		console.error('Error: Search term must be a string.');
+  	}
   };
 
   handleClick(event) {
