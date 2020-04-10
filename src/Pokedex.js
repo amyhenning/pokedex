@@ -23,9 +23,9 @@ class Pokedex extends Component {
 
   handleSubmit(event) {
 		event.preventDefault();
-		const forbiddenChars = /[^A-Za-z]/;
+		const forbiddenChars = /[^A-Za-z-]/;
 		if (forbiddenChars.test(this.state.value)) {
-			console.error('Error: Search term must be a string of letters.');
+			console.error('Error: Search term must be a string of letters and can only include hyphens.');
 		} else {
 			this.setState({
 				value: this.state.value,

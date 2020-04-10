@@ -8,8 +8,8 @@ function App() {
     <div className="App">
       <Pokedex />
 
-			<footer>
-				<p className="footer-text">Hand-coded by Amy Henning, 2020</p>
+			<footer id="footer">
+				<p className="footer-text">Hand-coded by <a href="https://amyhenning.codes">Amy Henning</a>, 2020</p>
 			</footer>
     </div>
   );
