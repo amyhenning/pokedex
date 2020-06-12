@@ -67,7 +67,7 @@ class PokemonInfo extends Component {
 		pokemonData['stats'].map(stat => combinedData[stat['stat']['name']] = stat['base_stat']);
 		combinedData['types'] = pokemonData['types'].map(type => type['type']['name']);
 		combinedData['id'] = this.padToThree(speciesData['pokedex_numbers'].pop()['entry_number']);
-		combinedData['flavorText'] = speciesData['flavor_text_entries'].pop()['flavor_text']
+		combinedData['flavorText'] = speciesData['flavor_text_entries'].shift()['flavor_text']
 		return combinedData;
 	}
 
